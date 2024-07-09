@@ -8,14 +8,12 @@ public class Movement : MonoBehaviour
     private CharacterController controller;
     private Vector3 currentDirection = Vector3.zero;
 
-    private Animator animator;
+    [Space,SerializeField]private Animator animator;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         Event<JoystickInputEvent>.OnEvent += OnMovementInput;
-
-        animator = GetComponent<Animator>();
     }
 
     private void OnMovementInput(JoystickInputEvent evt)

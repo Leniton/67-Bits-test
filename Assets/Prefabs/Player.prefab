@@ -515,6 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  animator: {fileID: 904840215162210424}
 --- !u!114 &2115346608512816190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,7 +542,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorPoint: {fileID: 6795717553901504473}
   offset: {x: 0, y: 0.5, z: -0.6}
-  carried: {fileID: 0}
 --- !u!1 &4358259303018028828
 GameObject:
   m_ObjectHideFlags: 0
