@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    [SerializeField] float speed = 1;
     private CharacterController controller;
     private Vector3 currentDirection = Vector3.zero;
 
@@ -24,6 +25,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        controller.Move(currentDirection);
+        controller.Move(currentDirection * Time.deltaTime * speed);
+        transform.LookAt(transform.position + currentDirection);
     }
 }
