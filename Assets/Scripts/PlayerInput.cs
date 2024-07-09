@@ -36,7 +36,7 @@ public class PlayerInput : MonoBehaviour
 
     //total time: .53s
     WaitForSeconds delayToActivate = new WaitForSeconds(.28f);
-    WaitForSeconds delayToDeactivate = new WaitForSeconds(.25f);
+    WaitForSeconds delayToDeactivate = new WaitForSeconds(.3f);
     IEnumerator DelayedPunchTrigger()
     {
         yield return delayToActivate;

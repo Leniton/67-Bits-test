@@ -1732,6 +1732,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1458508667441012686, guid: 98c19e5c3b37ec34d929489b69807ab2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2115346608512816190, guid: 98c19e5c3b37ec34d929489b69807ab2,
         type: 3}
       propertyPath: animator
