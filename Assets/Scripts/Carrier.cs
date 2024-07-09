@@ -6,29 +6,21 @@ public class Carrier : MonoBehaviour
 {
     [SerializeField] Transform anchorPoint;
     [SerializeField] Vector3 offset;
-
-    [SerializeField] Transform carried;//test only
+    Transform carried;
 
     private Vector3 lastPosition;
     private Vector3 lastRotation;
 
-    private void Awake()
+    public void SetCarried(Transform carried)
     {
-        //carried.SetParent(anchorPoint);
-
-        lastPosition = carried.position;
-        lastRotation = carried.eulerAngles;
+        this.carried = carried;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
+        if (!carried) return;
         carried.position = anchorPoint.TransformPoint(offset);
-
         LerpRotation();
-
-        lastPosition = carried.position;
-        lastRotation = carried.eulerAngles;
     }
 
     private void LerpRotation()
