@@ -1813,6 +1813,7 @@ MonoBehaviour:
   fallen: 0
   animator: {fileID: 785261950}
   movement: {fileID: 1622982134}
+  characterController: {fileID: 1622982132}
 --- !u!1 &1765782141
 GameObject:
   m_ObjectHideFlags: 0

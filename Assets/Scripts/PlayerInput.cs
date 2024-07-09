@@ -6,7 +6,9 @@ public class PlayerInput : MonoBehaviour
 {
     [SerializeField] Movement movement;
     [SerializeField] Animator animator;
+    [SerializeField] Carrier carrier;
     [SerializeField] TriggerDetector punchDetector;
+    [SerializeField] TriggerDetector pickDetector;
 
     private Coroutine punchCoroutine;//way to detect if it is already punching
 
@@ -16,6 +18,7 @@ public class PlayerInput : MonoBehaviour
         Event<PunchTriggeredEvemt>.OnEvent += OnPunch;
 
         punchDetector.onTrigger += OnTrigger;
+        pickDetector.onTrigger += OnPickupRange;
     }
 
     private void OnJoystickInput(JoystickInputEvent input)
@@ -46,9 +49,16 @@ public class PlayerInput : MonoBehaviour
         punchDetector.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnPickupRange(Collider collider)
     {
-        
+        if (collider.TryGetComponent<NPC>(out var npc))
+        {
+            if (npc.fallen)
+            {
+                carrier.SetCarried(npc.transform);
+                npc.PickUp();
+            }
+        }
     }
 
     private void OnTrigger(Collider other)

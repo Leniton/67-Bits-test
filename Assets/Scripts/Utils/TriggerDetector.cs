@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class TriggerDetector : MonoBehaviour
 {
-    public Action<Collider> onTrigger;
+    public Action<Collider> onTrigger,onExit;
     private Collider collider;
 
     private void Awake()
@@ -17,5 +17,10 @@ public class TriggerDetector : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         onTrigger?.Invoke(other);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        onExit?.Invoke(other);
     }
 }
