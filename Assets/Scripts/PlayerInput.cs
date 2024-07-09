@@ -46,8 +46,16 @@ public class PlayerInput : MonoBehaviour
         punchDetector.SetActive(false);
     }
 
-    private void OnTrigger(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         
+    }
+
+    private void OnTrigger(Collider other)
+    {
+        if(other.TryGetComponent<NPC>(out  var npc))
+        {
+            npc.Fall();
+        }
     }
 }

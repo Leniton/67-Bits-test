@@ -8,9 +8,6 @@ public class Carrier : MonoBehaviour
     [SerializeField] Vector3 offset;
     Transform carried;
 
-    private Vector3 lastPosition;
-    private Vector3 lastRotation;
-
     public void SetCarried(Transform carried)
     {
         this.carried = carried;

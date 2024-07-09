@@ -6,9 +6,19 @@ public class WanderMovement : MonoBehaviour
 {
     [SerializeField] Movement movement;
 
-    private void Awake()
+    private void Start()
+    {
+        StartWander();
+    }
+
+    public void StartWander()
     {
         StartCoroutine(Wander());
+    }
+
+    public void Stop()
+    {
+        StopAllCoroutines();
     }
 
     private IEnumerator Wander()
