@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 14917899597368294}
   - component: {fileID: 5992022148946205425}
   - component: {fileID: 2115346608512816190}
+  - component: {fileID: 4629168769480680927}
   - component: {fileID: 392839718713738857}
   m_Layer: 3
   m_Name: Player
@@ -530,9 +531,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 5992022148946205425}
   animator: {fileID: 904840215162210424}
-  carrier: {fileID: 392839718713738857}
   punchDetector: {fileID: 514926674753496247}
+--- !u!114 &4629168769480680927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246019371875283192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb6ce087041c754e930e01190e17ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   pickDetector: {fileID: 5472285509845501226}
+  carrier: {fileID: 392839718713738857}
 --- !u!114 &392839718713738857
 MonoBehaviour:
   m_ObjectHideFlags: 0
