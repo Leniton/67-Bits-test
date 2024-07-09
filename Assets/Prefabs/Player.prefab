@@ -73,7 +73,7 @@ SkinnedMeshRenderer:
   m_GameObject: {fileID: 1106290370745874798}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -196,7 +196,7 @@ SkinnedMeshRenderer:
   m_GameObject: {fileID: 1841967660724925174}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -544,6 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb6ce087041c754e930e01190e17ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxPickUp: 1
   pickDetector: {fileID: 5472285509845501226}
   carrier: {fileID: 392839718713738857}
 --- !u!114 &392839718713738857
@@ -847,7 +848,7 @@ SkinnedMeshRenderer:
   m_GameObject: {fileID: 5459260409371330312}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -1017,7 +1018,7 @@ SkinnedMeshRenderer:
   m_GameObject: {fileID: 5842604636732118360}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -1185,7 +1186,7 @@ SkinnedMeshRenderer:
   m_GameObject: {fileID: 7015914078383337519}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -1415,7 +1416,7 @@ SkinnedMeshRenderer:
   m_GameObject: {fileID: 7520057658959937874}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
