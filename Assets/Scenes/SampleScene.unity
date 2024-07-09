@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &184758206 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 904840215162210424, guid: 98c19e5c3b37ec34d929489b69807ab2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6477593959332999078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &189494999
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,12 +995,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 25.618, y: 0, z: 0}
---- !u!135 &989049733 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 1458508667441012686, guid: 98c19e5c3b37ec34d929489b69807ab2,
+--- !u!1 &989049731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7080594173938074373, guid: 98c19e5c3b37ec34d929489b69807ab2,
     type: 3}
   m_PrefabInstance: {fileID: 6477593959332999078}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &989049734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989049731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9394d318d1227af4790f0b3796f9c707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1294769033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,7 +1344,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1468794839}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1468794842}
+        m_TargetAssemblyTypeName: PunchTrigger, Assembly-CSharp
+        m_MethodName: TriggerPunch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1468794842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,7 +1366,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1468794837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 890c270b130425246a3f1a9fee0832f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c1780405b8a7b64c96fdd68b4f74036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1579671801
@@ -1704,9 +1734,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2115346608512816190, guid: 98c19e5c3b37ec34d929489b69807ab2,
         type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 184758206}
+    - target: {fileID: 2115346608512816190, guid: 98c19e5c3b37ec34d929489b69807ab2,
+        type: 3}
       propertyPath: punchDetector
       value: 
-      objectReference: {fileID: 989049733}
+      objectReference: {fileID: 989049734}
     - target: {fileID: 2581140666820028737, guid: 98c19e5c3b37ec34d929489b69807ab2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1762,10 +1797,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5389084843410821153, guid: 98c19e5c3b37ec34d929489b69807ab2,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7080594173938074373, guid: 98c19e5c3b37ec34d929489b69807ab2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 989049734}
   m_SourcePrefab: {fileID: 100100000, guid: 98c19e5c3b37ec34d929489b69807ab2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

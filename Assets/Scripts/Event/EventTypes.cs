@@ -6,4 +6,4 @@ public struct JoystickInputEvent: IEvent
     public JoystickInputEvent(Vector2 direction) => Direction = direction;
 }
 
-public struct PunchButtonEvemt: IEvent { }
+public struct PunchTriggeredEvemt: IEvent { }
