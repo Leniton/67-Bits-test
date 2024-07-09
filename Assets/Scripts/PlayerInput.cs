@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] Movement movement;
+    [SerializeField] Collider punchDetector;
 
     private void Awake()
     {
