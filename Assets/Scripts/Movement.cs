@@ -13,16 +13,11 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
-        Event<JoystickInputEvent>.OnEvent += OnMovementInput;
     }
 
-    private void OnMovementInput(JoystickInputEvent evt)
+    public void ChangeDirection(Vector3 direction)
     {
-        Vector3 movementDirection = evt.Direction;
-
-        movementDirection.z = movementDirection.y;
-        movementDirection.y = 0;
-        currentDirection = movementDirection;
+        currentDirection = direction;
     }
 
     private void FixedUpdate()
