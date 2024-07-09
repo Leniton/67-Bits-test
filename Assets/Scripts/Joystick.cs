@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
-    [SerializeField] RectTransform handle;
+    [SerializeField] private RectTransform handle;
     private RectTransform joystick;
     private float radius;
 

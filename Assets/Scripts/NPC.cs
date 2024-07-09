@@ -5,9 +5,9 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     [HideInInspector] public bool fallen;
-    [SerializeField] Animator animator;
-    [SerializeField] WanderMovement movement;
-    [SerializeField] CharacterController characterController;
+    [SerializeField] private Animator animator;
+    [SerializeField] private WanderMovement movement;
+    [SerializeField] private CharacterController characterController;
 
     public void Fall()
     {

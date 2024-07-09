@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Carrier : MonoBehaviour
 {
-    [SerializeField] Transform anchorPoint;
-    [SerializeField] Vector3 offset;
+    [SerializeField] private Transform anchorPoint;
+    [SerializeField] private Vector3 offset;
     Transform carried;
 
     public void SetCarried(Transform carried)

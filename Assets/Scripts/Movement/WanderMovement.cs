@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WanderMovement : MonoBehaviour
 {
-    [SerializeField] Movement movement;
+    [SerializeField] private Movement movement;
 
     private void Start()
     {

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    [SerializeField] Movement movement;
-    [SerializeField] Animator animator;
-    [SerializeField] TriggerDetector punchDetector;
+    [SerializeField] private Movement movement;
+    [SerializeField] private Animator animator;
+    [SerializeField] private TriggerDetector punchDetector;
 
     private Coroutine punchCoroutine;//way to detect if it is already punching
 

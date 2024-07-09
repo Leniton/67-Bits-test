@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerCarry : MonoBehaviour
 {
     public int maxPickUp = 1;
-    [SerializeField] TriggerDetector pickDetector;
-    [SerializeField] Carrier carrier;
+    [SerializeField] private TriggerDetector pickDetector;
+    [SerializeField] private Carrier carrier;
 
     private List<Carrier> subCarriers = new();
 
