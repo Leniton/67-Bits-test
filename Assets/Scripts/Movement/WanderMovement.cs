@@ -23,8 +23,8 @@ public class WanderMovement : MonoBehaviour
 
     private IEnumerator Wander()
     {
-        WaitForSeconds delay = new WaitForSeconds(2.5f);
-        WaitForSeconds pause = new WaitForSeconds(4);
+        WaitForSeconds delay = new WaitForSeconds(Random.Range(2.5f, 4f));
+        WaitForSeconds pause = new WaitForSeconds(Random.Range(3f, 4f));
 
         while (movement != null)
         {
