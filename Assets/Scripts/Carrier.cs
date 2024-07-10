@@ -15,7 +15,7 @@ public class Carrier : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!carried) return;
+        if (carried == null) return;
         carried.position = anchorPoint.TransformPoint(offset);
         LerpRotation();
     }

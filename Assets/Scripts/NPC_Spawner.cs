@@ -27,8 +27,8 @@ public class NPC_Spawner : MonoBehaviour
                 NPC target = Random.Range(0, 2) == 0 ? womam : men;
 
                 Vector3 spawnPoint = Vector3.up * 2.266f;
-                spawnPoint.x = Random.Range(0, SpawnRange);
-                spawnPoint.z = Random.Range(0, SpawnRange);
+                spawnPoint.x = Random.Range(-SpawnRange, SpawnRange);
+                spawnPoint.z = Random.Range(-SpawnRange, SpawnRange);
                 spawnPoint += transform.position;
 
                 NPC instance = Instantiate(target, spawnPoint, Quaternion.identity);

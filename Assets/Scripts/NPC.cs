@@ -8,17 +8,27 @@ public class NPC : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private WanderMovement movement;
     [SerializeField] private CharacterController characterController;
+    [SerializeField] private Rigidbody rb;
 
-    public void Fall()
+    public void Fall(Vector3 dir)
     {
         fallen = true;
         movement.Stop();
-        animator.SetTrigger("Fall");
+        animator.enabled = false;
+        characterController.enabled = false;
+        rb.AddForce(dir * 150, ForceMode.Impulse);
     }
 
     public void PickUp()
     {
-        characterController.enabled = false;
+        animator.enabled = true;
         animator.Play("Idle");
+        rb.useGravity = false;
+        Rigidbody[] rest = GetComponentsInChildren<Rigidbody>();
+        for (int i = 0; i < rest.Length; i++)
+        {
+            rest[i].isKinematic = true;
+            rest[i].GetComponent<Collider>().enabled = false;
+        }
     }
 }

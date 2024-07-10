@@ -50,7 +50,7 @@ public class PlayerInput : MonoBehaviour
     {
         if(other.TryGetComponent<NPC>(out  var npc))
         {
-            npc.Fall();
+            npc.Fall(transform.forward);
         }
     }
 }

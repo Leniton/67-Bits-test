@@ -20,11 +20,13 @@ public class PlayerCarry : MonoBehaviour
     private void OnPickupRange(Collider collider)
     {
         if (subCarriers.Count > maxPickUp) return;
-        if (collider.TryGetComponent<NPC>(out var npc))
+        var npc = collider.GetComponentInParent<NPC>();
+        if (npc && npc.fallen)
         {
-            if (npc.fallen)
+            Carrier subCarrier = npc.GetComponent<Carrier>();
+            if (!subCarriers.Contains(subCarrier))
             {
-                subCarriers.Add(npc.GetComponent<Carrier>());
+                subCarriers.Add(subCarrier);
                 npc.PickUp();
                 UpdateCarriers();
             }
