@@ -58,13 +58,15 @@ public class Shop : MonoBehaviour
     private void BuyItem(ShopItem item)
     {
         if (!shopItems.Contains(item)) return;
-        item.Buy(currentBuyer);
-        if (!item.permanent)
+        if (item.Buy(currentBuyer))
         {
-            shopItems.Remove(item);
-            Destroy(item.gameObject);
+            if (!item.permanent)
+            {
+                shopItems.Remove(item);
+                Destroy(item.gameObject);
+            }
+            CheckPrices();
+            moneyText.text = currentBuyer.Money.ToString();
         }
-        CheckPrices();
-        moneyText.text = currentBuyer.Money.ToString();
     }
 }
