@@ -28,6 +28,7 @@ public class WanderMovement : MonoBehaviour
 
         while (movement != null)
         {
+            yield return pause;
             Vector3 dir = Vector3.zero;
             dir.x = Random.Range(-1f, 1f);
             dir.z = Random.Range(-1f, 1f);
@@ -35,7 +36,6 @@ public class WanderMovement : MonoBehaviour
             movement.ChangeDirection(dir.normalized);
             yield return delay;
             movement.ChangeDirection(Vector3.zero);
-            yield return pause;
         }
     }
 }
