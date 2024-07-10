@@ -547,6 +547,7 @@ MonoBehaviour:
   maxPickUp: 1
   pickDetector: {fileID: 5472285509845501226}
   carrier: {fileID: 392839718713738857}
+  animator: {fileID: 904840215162210424}
 --- !u!114 &392839718713738857
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class PlayerCarry : MonoBehaviour
     public int maxPickUp = 1;
     [SerializeField] private TriggerDetector pickDetector;
     [SerializeField] private Carrier carrier;
+    [SerializeField] private Animator animator;
 
     private List<Carrier> subCarriers = new();
 
@@ -60,6 +61,7 @@ public class PlayerCarry : MonoBehaviour
             Destroy(subCarriers[1].gameObject);
             subCarriers.RemoveAt(1);
         }
+        animator.SetBool("Heavy", false);
         return total;
     }
 
@@ -70,7 +72,6 @@ public class PlayerCarry : MonoBehaviour
             subCarriers[i].SetCarried(subCarriers[i + 1].transform);
         }
         subCarriers[^1].SetCarried(null);
+        animator.SetBool("Heavy", subCarriers.Count >= maxPickUp + 1);
     }
-
-
 }
