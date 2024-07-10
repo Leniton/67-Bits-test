@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorChangeItem : MonoBehaviour
+public class ColorChangeItem : ShopItem
 {
-    // Start is called before the first frame update
-    void Start()
+    public Color color;
+
+    protected override void Awake()
     {
-        
+        base.Awake();
+        image.color = color;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override bool Buy(Buyer buyer)
     {
-        
+        if (!base.Buy(buyer)) return false;
+
+        return true;
     }
 }

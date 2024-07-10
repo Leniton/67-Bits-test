@@ -7,28 +7,33 @@ using UnityEngine.UI;
 public abstract class ShopItem : MonoBehaviour
 {
     public int Cost;
-    [SerializeField] private Image background;
+    public bool permanent;
+    [SerializeField] protected Image background;
     [SerializeField] protected Image image;
-    [SerializeField] private TMP_Text description;
-    [SerializeField] private TMP_Text textCost;
+    [SerializeField] protected TMP_Text description;
+    [SerializeField] protected TMP_Text textCost;
 
-    private Color canBuyColor = new Color(.3f, 1, .3f);
-    private Color cantBuyColor = new Color(1, .3f, .3f);
+    protected Color canBuyColor = new Color(.3f, 1, .3f);
+    protected Color cantBuyColor = new Color(1, .3f, .3f);
 
-    private void Awake()
+    protected virtual void Awake()
     {
         textCost.text = $"${Cost}";
     }
 
     public void CheckCanBuy(int money)
     {
-        background.color = money >= Cost ? canBuyColor : cantBuyColor;
+        Color color = money >= Cost ? canBuyColor : cantBuyColor;
+        background.color = color;
+        textCost.color = color;
     }
 
-    public virtual void Buy(Buyer buyer)
+    public virtual bool Buy(Buyer buyer)
     {
-        if (buyer.Money < Cost) return;//check if it works also on the inherited
+        if (buyer.Money < Cost) return false;
 
         buyer.Money -= Cost;
+        
+        return true;
     }
 }

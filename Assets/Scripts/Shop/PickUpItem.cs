@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpItem : MonoBehaviour
+public class PickUpItem : ShopItem
 {
-    // Start is called before the first frame update
-    void Start()
+    public override bool Buy(Buyer buyer)
     {
-        
-    }
+        if (!base.Buy(buyer)) return false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return true;
     }
 }

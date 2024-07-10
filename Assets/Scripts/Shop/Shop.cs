@@ -2,11 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
     [SerializeField] private GameObject shopUI;
     [SerializeField] private TMP_Text moneyText;
+    [SerializeField] private List<ShopItem> shopItems;
+
+    private Buyer currentBuyer;
+
+    private void Awake()
+    {
+        for (int i = 0; i < shopItems.Count; i++)
+        {
+            ShopItem shopItem = shopItems[i];
+            shopItems[i].GetComponent<Button>().onClick.AddListener(() => BuyItem(shopItem));
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,7 +29,26 @@ public class Shop : MonoBehaviour
             {
                 buyer.Money += player.ClearCarriers();
                 moneyText.text = buyer.Money.ToString();
+                currentBuyer = buyer;
+                OpenShop();
             }
         }
+    }
+
+    private void OpenShop()
+    {
+        shopUI.gameObject.SetActive(true);
+    }
+
+    public void CloseShop()
+    {
+        shopUI.gameObject.SetActive(false);
+    }
+
+    private void BuyItem(ShopItem item)
+    {
+        if (!shopItems.Contains(item)) return;
+        item.Buy(currentBuyer);
+        if (!item.permanent) Destroy(item.gameObject);
     }
 }

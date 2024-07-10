@@ -22,6 +22,6 @@ public class Carrier : MonoBehaviour
 
     private void LerpRotation()
     {
-        carried.forward = Vector3.Lerp(carried.forward, anchorPoint.TransformDirection(Vector3.forward),.2f);
+        carried.forward = Vector3.Lerp(carried.forward, anchorPoint.TransformDirection(Vector3.forward),.15f);
     }
 }
