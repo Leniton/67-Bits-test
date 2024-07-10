@@ -11,6 +11,8 @@ public class Carrier : MonoBehaviour
     public void SetCarried(Transform carried)
     {
         this.carried = carried;
+        if (carried == null) return;
+        carried.position = anchorPoint.TransformPoint(offset);
     }
 
     void FixedUpdate()

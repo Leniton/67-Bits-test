@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!controller.enabled) return;
         controller.Move(currentDirection * Time.deltaTime * speed);
         transform.LookAt(transform.position + currentDirection);
         animator.SetFloat("Speed", currentDirection.magnitude);
