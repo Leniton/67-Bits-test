@@ -30,11 +30,26 @@ public class PlayerCarry : MonoBehaviour
         }
     }
 
+    //
+    public int ClearCarriers()
+    {
+        int total = subCarriers.Count - 1;
+        subCarriers[0].SetCarried(null);
+        for (int i = 1; i < total + 1; i++)
+        {
+            subCarriers[1].SetCarried(null);
+            Destroy(subCarriers[1].gameObject);
+            subCarriers.RemoveAt(1);
+        }
+        return total;
+    }
+
     private void UpdateCarriers()
     {
         for (int i = 0; i < subCarriers.Count - 1; i++)
         {
             subCarriers[i].SetCarried(subCarriers[i + 1].transform);
         }
+        subCarriers[^1].SetCarried(null);
     }
 }
