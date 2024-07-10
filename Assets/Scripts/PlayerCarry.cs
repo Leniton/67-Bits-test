@@ -11,8 +11,11 @@ public class PlayerCarry : MonoBehaviour
 
     private List<Carrier> subCarriers = new();
 
+    private Coroutine coroutine;
+
     private void Awake()
     {
+        Event<PunchTriggeredEvent>.OnEvent += DisableOnPunch;
         pickDetector.onTrigger += OnPickupRange;
         subCarriers.Add(carrier);
     }
@@ -31,6 +34,20 @@ public class PlayerCarry : MonoBehaviour
                 UpdateCarriers();
             }
         }
+    }
+
+    private void DisableOnPunch(PunchTriggeredEvent evt)
+    {
+        if (coroutine != null) return;
+        pickDetector.onTrigger -= OnPickupRange;
+        coroutine = StartCoroutine(EnableAfterPunch(evt.duration));
+    }
+
+    private IEnumerator EnableAfterPunch(float duration)
+    {
+        yield return new WaitForSeconds(duration + .2f);//duration + extra frame
+        pickDetector.onTrigger += OnPickupRange;
+        coroutine = null;
     }
 
     public int ClearCarriers()

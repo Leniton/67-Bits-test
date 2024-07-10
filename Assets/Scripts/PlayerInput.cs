@@ -13,7 +13,7 @@ public class PlayerInput : MonoBehaviour
     private void Awake()
     {
         Event<JoystickInputEvent>.OnEvent += OnJoystickInput;
-        Event<PunchTriggeredEvemt>.OnEvent += OnPunch;
+        Event<PunchTriggeredEvent>.OnEvent += OnPunch;
 
         punchDetector.onTrigger += OnTrigger;
     }
@@ -27,16 +27,17 @@ public class PlayerInput : MonoBehaviour
         movement.ChangeDirection(movementDirection);
     }
 
-    private void OnPunch(PunchTriggeredEvemt evt)
+    private void OnPunch(PunchTriggeredEvent evt)
     {
         if (punchCoroutine != null) return;
         animator.SetTrigger("Punch");
-        StartCoroutine(DelayedPunchTrigger());
+        delayToActivate = new WaitForSeconds(evt.duration * .4f);
+        delayToDeactivate = new WaitForSeconds(evt.duration * .3f);
+        punchCoroutine = StartCoroutine(DelayedPunchTrigger());
     }
 
-    //total time: .58s
-    WaitForSeconds delayToActivate = new WaitForSeconds(.28f);
-    WaitForSeconds delayToDeactivate = new WaitForSeconds(.3f);
+    WaitForSeconds delayToActivate;
+    WaitForSeconds delayToDeactivate;
     IEnumerator DelayedPunchTrigger()
     {
         yield return delayToActivate;
@@ -44,12 +45,14 @@ public class PlayerInput : MonoBehaviour
 
         yield return delayToDeactivate;
         punchDetector.SetActive(false);
+        punchCoroutine = null;
     }
 
     private void OnTrigger(Collider other)
     {
         if(other.TryGetComponent<NPC>(out  var npc))
         {
+            punchDetector.SetActive(false);
             npc.Fall(transform.forward);
         }
     }
