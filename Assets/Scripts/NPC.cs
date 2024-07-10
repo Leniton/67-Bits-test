@@ -14,6 +14,7 @@ public class NPC : MonoBehaviour
     {
         fallen = true;
         movement.Stop();
+        animator.SetFloat("Speed", 0);
         animator.enabled = false;
         characterController.enabled = false;
         rb.AddForce(dir * 150, ForceMode.Impulse);
@@ -34,7 +35,6 @@ public class NPC : MonoBehaviour
     public void PickUp()
     {
         animator.enabled = true;
-        animator.Play("Idle");
         rb.isKinematic = true;
         Collider[] rest = GetComponentsInChildren<Collider>();
         for (int i = 0; i < rest.Length; i++)
