@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,6 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     [SerializeField] private GameObject shopUI;
-    [SerializeField] private TMP_Text moneyText;
     [SerializeField] private List<ShopItem> shopItems;
 
     private Buyer currentBuyer;
@@ -27,8 +27,10 @@ public class Shop : MonoBehaviour
         {
             if(other.TryGetComponent<PlayerCarry>(out var player))
             {
-                buyer.Money += player.ClearCarriers();
-                moneyText.text = buyer.Money.ToString();
+                int carried = player.ClearCarriers();
+                buyer.Money += carried;
+                PlayerMoneyChangedEvent evt = new(buyer.Money, carried);
+                Event<PlayerMoneyChangedEvent>.CallEvent(evt);
                 currentBuyer = buyer;
                 OpenShop();
             }
@@ -58,15 +60,17 @@ public class Shop : MonoBehaviour
     private void BuyItem(ShopItem item)
     {
         if (!shopItems.Contains(item)) return;
+        PlayerMoneyChangedEvent evt = new(currentBuyer.Money, -item.Cost);
         if (item.Buy(currentBuyer))
         {
+            evt.newValue = currentBuyer.Money;
+            Event<PlayerMoneyChangedEvent>.CallEvent(evt);
             if (!item.permanent)
             {
                 shopItems.Remove(item);
                 Destroy(item.gameObject);
             }
             CheckPrices();
-            moneyText.text = currentBuyer.Money.ToString();
         }
     }
 }

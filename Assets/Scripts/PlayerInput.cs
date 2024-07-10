@@ -36,8 +36,8 @@ public class PlayerInput : MonoBehaviour
         punchCoroutine = StartCoroutine(DelayedPunchTrigger());
     }
 
-    WaitForSeconds delayToActivate;
-    WaitForSeconds delayToDeactivate;
+    private WaitForSeconds delayToActivate;
+    private WaitForSeconds delayToDeactivate;
     IEnumerator DelayedPunchTrigger()
     {
         yield return delayToActivate;
