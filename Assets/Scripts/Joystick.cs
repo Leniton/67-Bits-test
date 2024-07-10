@@ -22,6 +22,13 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     public void OnDrag(PointerEventData eventData)
     {
+        GameObject target = eventData.pointerCurrentRaycast.gameObject;
+        if (target != handle.gameObject && target != joystick.gameObject && target != null)
+        {
+            OnPointerUp(eventData);
+            return;
+        }
+
         UpdateHandler(eventData.position);
     }
 
