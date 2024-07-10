@@ -33,7 +33,6 @@ public class PlayerCarry : MonoBehaviour
         }
     }
 
-    //
     public int ClearCarriers()
     {
         int total = subCarriers.Count - 1;
@@ -55,4 +54,6 @@ public class PlayerCarry : MonoBehaviour
         }
         subCarriers[^1].SetCarried(null);
     }
+
+
 }
