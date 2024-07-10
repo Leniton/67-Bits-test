@@ -38,11 +38,21 @@ public class Shop : MonoBehaviour
     private void OpenShop()
     {
         shopUI.gameObject.SetActive(true);
+        CheckPrices();
     }
+
 
     public void CloseShop()
     {
         shopUI.gameObject.SetActive(false);
+    }
+
+    private void CheckPrices()
+    {
+        for (int i = 0; i < shopItems.Count; i++)
+        {
+            shopItems[i].CheckCanBuy(currentBuyer.Money);
+        }
     }
 
     private void BuyItem(ShopItem item)
@@ -50,5 +60,7 @@ public class Shop : MonoBehaviour
         if (!shopItems.Contains(item)) return;
         item.Buy(currentBuyer);
         if (!item.permanent) Destroy(item.gameObject);
+        CheckPrices();
+        moneyText.text = currentBuyer.Money.ToString();
     }
 }

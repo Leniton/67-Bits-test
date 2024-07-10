@@ -16,6 +16,13 @@ public class ColorChangeItem : ShopItem
     {
         if (!base.Buy(buyer)) return false;
 
-        return true;
+        Renderer renderer = buyer.GetComponentInChildren<Renderer>();
+        if(renderer)
+        {
+            renderer.material.color = color;
+            return true;
+        }
+        buyer.Money += Cost;
+        return false;
     }
 }

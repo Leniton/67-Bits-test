@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c477904eeee2f4a9404188d48f8a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cost: 1
+  Cost: 2
   permanent: 0
   background: {fileID: 1303070423361535774}
   image: {fileID: 287512293879659963}

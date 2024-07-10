@@ -8,6 +8,11 @@ public class PickUpItem : ShopItem
     {
         if (!base.Buy(buyer)) return false;
 
+        if(buyer.TryGetComponent<PlayerCarry>(out var player))
+        {
+            player.maxPickUp++;
+        }
+
         return true;
     }
 }

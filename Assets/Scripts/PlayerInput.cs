@@ -18,14 +18,6 @@ public class PlayerInput : MonoBehaviour
         punchDetector.onTrigger += OnTrigger;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            OnPunch(new());
-        }
-    }
-
     private void OnJoystickInput(JoystickInputEvent input)
     {
         Vector3 movementDirection = input.Direction;

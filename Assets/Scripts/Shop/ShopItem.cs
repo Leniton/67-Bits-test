@@ -13,8 +13,8 @@ public abstract class ShopItem : MonoBehaviour
     [SerializeField] protected TMP_Text description;
     [SerializeField] protected TMP_Text textCost;
 
-    protected Color canBuyColor = new Color(.3f, 1, .3f);
-    protected Color cantBuyColor = new Color(1, .3f, .3f);
+    protected Color canBuyColor = new Color(.1f, 1, .1f);
+    protected Color cantBuyColor = new Color(1, .1f, .1f);
 
     protected virtual void Awake()
     {
@@ -25,7 +25,6 @@ public abstract class ShopItem : MonoBehaviour
     {
         Color color = money >= Cost ? canBuyColor : cantBuyColor;
         background.color = color;
-        textCost.color = color;
     }
 
     public virtual bool Buy(Buyer buyer)
