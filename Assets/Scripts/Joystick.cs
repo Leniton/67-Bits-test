@@ -8,16 +8,21 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     [SerializeField] private RectTransform handle;
     private RectTransform joystick;
     private float radius;
+    Vector2 screenScale = Vector2.one;
 
     private void Awake()
     {
         joystick = transform as RectTransform;
         radius = joystick.sizeDelta.x * .5f;
+
+        //default screen size is 1920x1080
+        screenScale.x = 1920f / Screen.width;
+        screenScale.y = 1080f / Screen.height;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        UpdateHandler(eventData.position);
+        UpdateHandler(eventData.position * screenScale);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -29,7 +34,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
             return;
         }
 
-        UpdateHandler(eventData.position);
+        UpdateHandler(eventData.position * screenScale);
     }
 
     private void UpdateHandler(Vector2 mousePosition)
